@@ -1,22 +1,32 @@
-// main.js
+// JavaScript for filtering questions
 
-document.addEventListener("DOMContentLoaded", () => {
-    const searchInput = document.getElementById("search");
-    const questionItems = document.querySelectorAll(".question-item");
-    const searchButton = document.querySelector("button");
+// Function to filter question list based on search input
+function filterQuestions() {
+    const searchInput = document.getElementById('search').value.toLowerCase();
+    const questionList = document.getElementById('question-list');
+    const questions = questionList.getElementsByTagName('li');
 
-    // Event listener for the Search button
-    searchButton.addEventListener("click", () => {
-        const query = searchInput.value.toLowerCase();
+    for (let i = 0; i < questions.length; i++) {
+        const questionText = questions[i].textContent || questions[i].innerText;
+        if (questionText.toLowerCase().indexOf(searchInput) > -1) {
+            questions[i].style.display = ""; // Show matching items
+        } else {
+            questions[i].style.display = "none"; // Hide non-matching items
+        }
+    }
+}
 
-        questionItems.forEach((item) => {
-            const questionText = item.textContent.toLowerCase();
-            if (questionText.includes(query)) {
-                item.style.display = "block"; // Show matching questions
-            } else {
-                item.style.display = "none"; // Hide non-matching questions
-            }
-        });
-    });
-});
+// Optional: Enhance user experience with delayed search filtering
+document.getElementById('search').addEventListener('input', debounce(filterQuestions, 300));
+
+// Debounce function to limit the rate of search execution
+function debounce(func, wait) {
+    let timeout;
+    return function (...args) {
+        const context = this;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => func.apply(context, args), wait);
+    };
+}
+
 

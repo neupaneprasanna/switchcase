@@ -3,50 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Listing Question Website</title>
+    <title>Advanced Question Links</title>
     <link rel="stylesheet" href="main.css">
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Questions</a></li>
-                <li><a href="#">Submit a Question</a></li>
-                <li><a href="#">Contact</a></li>
-            </ul>
-        </nav>
-    <div class="new">
-            <h1>Question Listing</h1>
-        <div class="search-bar">
-            <input type="text" id="search" placeholder="Search questions...">
-            <button onclick="searchQuestions()">Search</button>
-        </div>
-    </div>
-        
-    </header>
-    <main>
+    <div class="container">
+        <h1>Questions</h1>
+        <input type="text" id="search" placeholder="Search questions..." onkeyup="filterQuestions()">
+        <ul id="question-list" class="question-list">
+            <li><a href="01_sc.html">Day of the Week</a></li>
+            <li><a href="02_sc.html">Currency Converter</a></li>
+            <li><a href="03_sc.html">Grocery Store Discount</a></li>
 
-        <section class="question-list">
-            <article class="question-item">
-                <h2><a href="01_sc.html">Day of the Week</a></h2>
-            </article>
-            
-        </section>
-        <section class="submit-question">
-            <h2>Submit a New Question</h2>
-            <form>
-                <label for="new-question">Your Question:</label>
-                <input type="text" id="new-question" name="new-question" required>
-                <button type="submit">Submit</button>
-            </form>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 Question Listing Website</p>
-    </footer>
+        </ul>
+    </div>
     <script src="main.js"></script>
 </body>
 </html>
-
 
