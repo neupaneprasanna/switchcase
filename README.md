@@ -33,7 +33,7 @@ This repository contains **10 practice set questions** with complete solutions t
 
 ## Contributing
 
-Contributions are welcome! If you have additional `switch` case problems or improved solutions, feel free to open a pull request.
+Contributions are welcome! Feel free to open a pull request if you have additional `switch` case problems or improved solutions.
 
 ## License
 
